@@ -8,6 +8,6 @@
 ### Self-Study
    João Barreiros Coelho Rodrigues nº99968
 ### Labs
-  João Barreiros Coelho Rodrigues nº99968
-  Henrique Ramos Delfino nº99957
-  IST-LEEC
+  João Barreiros Coelho Rodrigues nº99968 \n
+  Henrique Ramos Delfino nº99957 \n
+  IST-LEEC 
