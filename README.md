@@ -6,7 +6,7 @@
   Except from this specific case all code in this repository is completly Libre, as stated in the License
 ## Authors
 ### Self-Study
-    João Barreiros Coelho Rodrigues nº99968
+   João Barreiros Coelho Rodrigues nº99968
 ### Labs
   João Barreiros Coelho Rodrigues nº99968
   Henrique Ramos Delfino nº99957
