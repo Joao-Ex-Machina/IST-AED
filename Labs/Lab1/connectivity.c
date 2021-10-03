@@ -78,8 +78,8 @@ void quick_find(int *id, int N, FILE * fp, int quietOut)
          printf(" %d %d\n", p, q);
    }
    /*Print Groups*/
-     for(i = 1; i < N; i++){
-   	for (print_ctrl = 1; print_ctrl< N; print_ctrl++){
+     for(i = 0; i < N; i++){
+   	for (print_ctrl = 0; print_ctrl< N; print_ctrl++){
 		if(id[print_ctrl] ==i){
 			printf("%d-", print_ctrl);
 			Group_flag = 1;
