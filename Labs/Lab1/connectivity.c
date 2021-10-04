@@ -143,6 +143,7 @@ void quick_union(int *id, int N, FILE * fp, int quietOut)
          j = id[j];
 	 qu_search+=2;
       }
+      qu_search+=2;
       if (i == j) {
          /* already in the same set; discard */
 #if (DEBUG == 1)
@@ -198,12 +199,13 @@ void weighted_quick_union(int *id, int N, FILE * fp, int quietOut)
       pairs_cnt++;
 
       /* do search first */
-      for (i = p; i != id[i]; i = id[i]){ /*same line so it will only count as one read op.*/
-        wqu_search++;
+      for (i = p; i != id[i]; i = id[i]){ 
+        wqu_search+=2;
       }
       for (j = q; j != id[j]; j = id[j]){
-      	wqu_search++;
+      	wqu_search+=2;
       }
+      wqu_search+=2;
       if (i == j) {
          /* already in the same set; discard */
 #if (DEBUG == 1)
@@ -267,9 +269,10 @@ void compressed_weighted_quick_union(int *id, int N, FILE * fp, int quietOut)
 
       /* do search first */
       for (i = p; i != id[i]; i = id[i])
-	      cwqu_search++;
+	      cwqu_search+=2;
       for (j = q; j != id[j]; j = id[j])
-	      cwqu_search++;
+	      cwqu_search+=2;
+      cwqu_search+=2;
       if (i == j) {
          /* already in the same set; discard */
 #if (DEBUG == 1)
@@ -303,6 +306,7 @@ void compressed_weighted_quick_union(int *id, int N, FILE * fp, int quietOut)
          id[j] = t;
 	 cwqu_compression+=3;
       }
+      cwqu_compression+=2;
       if (!quietOut)
          printf(" %d %d\n", p, q);
    }
