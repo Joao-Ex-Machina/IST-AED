@@ -96,10 +96,13 @@ int main(int argc, char *argv[])
 if(strcmp(WriteOption, "FIM")==0){  
   	aux = lp;
 	retAddr=(t_lista**)calloc(numTotalPalavras,sizeof(t_lista*)); 
-  	while(getProxElementoLista(aux) != NULL){ /*run list until last node*/
+  	while(aux != NULL){ /*run list until last node*/
     		retAddr[cnt]=aux; /*save current adress*/
-		aux = getProxElementoLista(aux);/*run*/
 		cnt++;
+		if(getProxElementoLista(aux)==NULL)
+			break;
+		aux = getProxElementoLista(aux);/*run*/
+		
 	}
 	while(aux != NULL){
 		escreveUmaPalavra((t_palavra*) getItemLista(aux), fpOut, numTotalPalavras);

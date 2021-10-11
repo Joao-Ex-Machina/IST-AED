@@ -197,7 +197,7 @@ void incOcorr(t_palavra *p)
 void escreveUmaPalavra(t_palavra *p, FILE *fp, int numTotalPalavras)
 {
   float f= 0;
-  f = p->ocorrencias/ numTotalPalavras;
+  f = (((float)p->ocorrencias)/ ((float)numTotalPalavras))*100;
   fprintf(fp,"%4d-%f%% : %s\n", p->ocorrencias,f, p->pal);
 
 }
