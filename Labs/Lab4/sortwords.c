@@ -50,19 +50,19 @@ void sort(Item a[], int l, int r, int (*less) (Item, Item))
    Item v;
    OP_CNT+=1; /*reads l for the first time*/
    for (i = l + 1; i <= r; i++) {
-      OP_CNT+=2;/*reads i and r and compares*/
-      v = a[i];/*reads a[i] and moves*/
+      OP_CNT+=3;/*reads i and r and compares, reads i and adds 1*/
+      v = a[i];/*reads i, a[i] and moves*/
       j = i;/*reads i and moves*/
-      OP_CNT+=2; /*above*/
+      OP_CNT+=3; /*above*/
       while (j > l && less(v, a[j - 1])) {
 	OP_CNT+=2; /*reads j and l and compares*/
-	OP_CNT+=2; /*reads both items (v and a[j-1])*/
+	OP_CNT+=3; /*reads both items (v and a[j-1])*/
          a[j] = a[j - 1];/*reads a[j-1] and moves*/
-	OP_CNT+=1;
+	OP_CNT+=2;
          j--;
       }
       a[j] = v; /*reads v and moves*/
-      OP_CNT+=1;
+      OP_CNT+=2;
    }
    return;
 }
@@ -138,7 +138,7 @@ int main(int argc, char **argv)
    }
 
    /* ---------------------------------------- */
-   /*printf("Accesses count for sort: %d\n", OP_CNT); */
+   printf("Accesses count for sort: %d\n", OP_CNT);
 
    WriteFile(tabword, file, numWords);
    /*  printf("Number of different words: %d\n", n_palavras);  */
