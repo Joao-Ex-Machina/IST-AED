@@ -54,6 +54,7 @@ void quicksort(Item a[], int l, int r, int (*less)(Item,Item)){
 	for (;;) {
 	while (less(a[++i], v)){
 		OP_CNT+=3; /*read i, a[i], v*/
+		if (i == r) break;
 	}
 	while (less(v, a[--j])){
 		OP_CNT+=3; /*read j, a[j], v*/
@@ -163,11 +164,8 @@ int main(int argc, char **argv)
    }
 
    /* ---------------------------------------- */
-   /*printf("Accesses count for sort: %d\n", OP_CNT); */
-
+   printf("Accesses count for sort: %d\n", OP_CNT);
    WriteFile(tabword, file, numWords);
-   /*  printf("Number of different words: %d\n", n_palavras);  */
-
    FreeWordArray(&tabword,numWords);
 
    return 0;
